@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Heading Line and Text with Pink Shadow</title>
+    <style>
+        body {
+            font-family: serif; /* 襯線體以符合圖片外觀 */
+            padding: 50px;
+            background-color: #f9f9f9;
+            margin: 0;
+        }
+
+        .container {
+            background-color: white;
+            padding: 40px;
+            border: 1px solid #ccc;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3); /* 容器本身的淡淡陰影 */
+            width: 600px;
+            display: flex;
+            flex-direction: column;
+            gap: 30px; /* 標題之間的間距 */
+        }
+
+        /* 標題 1：線和文字都要有粉色陰影 */
+        .h1-both-shadow {
+            font-size: 42px;
+            margin: 0;
+            display: inline-block; /* 讓寬度隨文字調整，使線條長度正確 */
+            padding: 15px 0 0 0; /* 頂部留白給線條，稍微加多一點讓空間更好看 */
+            position: relative; /* 給 pseudo-element 定位用 */
+
+            /* --- 關鍵修改部分 (針對文字) --- */
+            
+            /* 1. 給文字加上粉色陰影 */
+            text-shadow: 2px 2px pink; 
+            
+            /* 確保原本的 border-top 是關閉的 */
+            border-top: none; 
+        }
+        
+        /* --- 關鍵修改部分 (針對線條) --- */
+
+        /* 2. 使用 pseudo-element 製作線條實體並加上陰影 */
+        .h1-both-shadow::before {
+            content: ''; /* 必需屬性 */
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50%; /* 線條寬度跟文字一樣 */
+            height: 4px; /* 線條厚度 */
+            background-color: black; /* 線條顏色 */
+            
+            /* 3. 給這條線單獨加上粉色陰影 */
+            box-shadow: 2px 2px pink; /* 這裡使用 box-shadow 作用於實體線條 */
+        }
+
+        /* ---------------------------------- */
+
+
+        /* 標題 2：斜體、黑邊框與黃色外邊框 (Outline) */
+        h2 {
+            font-style: italic;
+            font-size: 28px;
+            padding: 10px;
+            margin: 0;
+            border: 2px solid black;
+            outline: 4px solid yellow; /* 關鍵題目要求 */
+            box-shadow: 
+                /* 陰影1：模擬黃色外框 (實心、四週擴張 4px) */
+                0 0 0 4px yellow, 
+                
+                /* 陰影2：給黃色外框加上灰色擴散陰影 */
+                /* 參數：水平3px, 垂直3px, 模糊度6px, 顏色半透明灰 */
+                3px 3px 6px rgba(0,0,0,0.3);
+        }
+
+        /* 標題 3：靠右對齊與底線 */
+        .h3-container {
+            text-align: right; /* 容器內文字靠右 */
+        }
+
+        h3 {
+            font-size: 24px;
+            margin: 0;
+            display: inline-block;
+            text-decoration: underline; /* 沿用底線功能 */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1 class="h1-both-shadow">This is heading 1</h1>
+
+        <h2>This is heading 2</h2>
+
+        <div class="h3-container">
+            <h3>This is heading 3</h3>
+        </div>
+    </div>
+
+</body>
+</html>
