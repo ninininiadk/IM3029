@@ -47,7 +47,7 @@
             position: absolute;
             top: 0;
             left: 0;
-            width: 100%; /* 線條寬度跟文字一樣 */
+            width: 50%; /* 線條寬度跟文字一樣 */
             height: 4px; /* 線條厚度 */
             background-color: black; /* 線條顏色 */
             
@@ -66,6 +66,13 @@
             margin: 0;
             border: 2px solid black;
             outline: 4px solid yellow; /* 關鍵題目要求 */
+            box-shadow: 
+                /* 陰影1：模擬黃色外框 (實心、四週擴張 4px) */
+                0 0 0 4px yellow, 
+                
+                /* 陰影2：給黃色外框加上灰色擴散陰影 */
+                /* 參數：水平3px, 垂直3px, 模糊度6px, 顏色半透明灰 */
+                3px 3px 6px rgba(0,0,0,0.3);
         }
 
         /* 標題 3：靠右對齊與底線 */
