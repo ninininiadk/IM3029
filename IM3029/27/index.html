@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Layout</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #4ab8e8;
+      padding: 20px;
+      font-family: sans-serif;
+      min-height: 100vh;
+    }
+
+    .container {
+      background-color: white;
+      border-radius: 12px;
+      padding: 16px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    /* 綠色頂部區塊 */
+    .header-block {
+      background-color: #8dc63f;
+      border-radius: 8px;
+      height: 120px;
+      margin-bottom: 12px;
+    }
+
+    /* 青色區塊群組 */
+    .teal-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .teal-block {
+      background-color: #00bcd4;
+      border-radius: 8px;
+      height: 48px;
+    }
+
+    /* 灰色底部區塊群組 */
+    .gray-group {
+      display: flex;
+      gap: 8px;
+    }
+
+    .gray-block {
+      background-color: #e0e0e0;
+      border-radius: 8px;
+      flex: 1;
+      height: 60px;
+    }
+
+    /* ---- 大於 480px 的排版 ---- */
+    @media (min-width: 480px) {
+      /* 青色區塊改為橫排 3 欄 */
+      .teal-group {
+        flex-direction: row;
+      }
+
+      .teal-block {
+        flex: 1;
+        height: 120px;
+      }
+
+      /* 灰色底部改為 4 欄 */
+      .gray-block {
+        height: 60px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- 頂部綠色區塊 -->
+    <div class="header-block"></div>
+
+    <!-- 中間青色區塊（小螢幕：縱排；大螢幕：橫排） -->
+    <div class="teal-group">
+      <div class="teal-block"></div>
+      <div class="teal-block"></div>
+      <div class="teal-block"></div>
+    </div>
+
+    <!-- 底部灰色區塊 -->
+    <div class="gray-group">
+      <div class="gray-block"></div>
+      <div class="gray-block"></div>
+      <div class="gray-block"></div>
+      <div class="gray-block"></div>
+    </div>
+  </div>
+</body>
+</html>

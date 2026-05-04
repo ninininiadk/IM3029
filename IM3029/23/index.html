@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>QNAP Design Redline實作 - 完整版</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --text-dark: #2f2f2f;
+            --text-gray: #707070;
+            --info-bg: #e8f3ff;
+            --info-border: #cfddff;
+            --green-highlight: #030303;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f3f3f3;
+            display: flex;
+            justify-content: center;
+            padding: 40px;
+            margin: 0;
+        }
+
+        /* 依照標註：主容器寬度 496px */
+        .container {
+            width: 496px;
+            background: white;
+            border: 1px solid #eaeaea;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* 頂部標題列模擬 */
+        .header {
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 12px;
+            border-bottom: 1px solid #eaeaea;
+            font-size: 13px;
+            color: var(--text-dark);
+        }
+
+        /* 標註重點：Try this 按鈕 (H22 / R8) */
+        .btn-try-this {
+            height: 22px;             /* size: h22 */
+            border-radius: 8px;       /* R8 */
+            background-color: #ffffff;/* background #ffffff */
+            border: 1px solid #2f2f2f;/* outline 1px #2f2f2f */
+            color: #2f2f2f;           /* Color: #2f2f2f */
+            font-family: 'Roboto', sans-serif;
+            font-size: 13px;          /* Roboto Regular 13px */
+            padding: 0 15px;
+            cursor: pointer;
+            outline: none;
+            display: inline-flex;
+            align-items: center;
+            transition: background 0.2s;
+        }
+
+        .btn-try-this:hover {
+            background-color: #f6f6f6;
+        }
+
+        /* 預覽圖片區塊 (450x240) */
+        .preview-area {
+            padding: 20px 23px; /* 依照標註間距左右大約20-26px */
+            text-align: center;
+        }
+
+        .main-image {
+            width: 450px;
+            height: 240px;
+            object-fit: cover;
+            border: 1px solid #eee;
+        }
+
+        /* 標註重點：下方資訊欄 (具備滾輪滑動功能) */
+        .info-scroller {
+            display: none; /* 預設隱藏 */
+           background-color: #ffffff; 
+            border-top: 1px solid #ffffff;
+            max-height: 100px; /* 固定高度以觸發滾輪 */
+            overflow-y: auto;  /* 標註要求：Scrolling bar */
+            padding: 6px 20px;
+        }
+
+        /* 客製化滾輪樣式 (讓它看起來更像 UI 介面) */
+        .info-scroller::-webkit-scrollbar {
+            width: 6px;
+        }
+        .info-scroller::-webkit-scrollbar-thumb {
+            background-color: #cfddff;
+            border-radius: 3px;
+        }
+
+        .info-line {
+            font-size: 13px;
+            color: var(--green-highlight); /* 參考圖片中的綠色文字 */
+            margin: 4px 0;
+            white-space: nowrap;
+        }
+
+        .info-path {
+            word-break: break-all;
+            white-space: normal;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <span>預覽</span>
+            <button class="btn-try-this" id="toggleBtn">查看資訊</button>
+        </div>
+
+        <div class="preview-area">
+            <img src="https://picsum.photos/450/240?image=1058" alt="Preview" class="main-image">
+        </div>
+
+        <div class="info-scroller" id="infoPanel">
+            <div class="info-line">修改日期：2017/10/12</div>
+            <div class="info-line">類別：JPG</div>
+            <div class="info-line">大小：466.97KB</div>
+            <div class="info-line info-path">路徑：\\designcenter.qnap.com.tw\DesignCenter\PM-RD導入\WEB\Stations\A_Image2PDF\v2\sample</div>
+            <div class="info-line">解析度：1920 x 1080</div>
+            <div class="info-line">創作者：Design Team</div>
+            <div class="info-line">權限：唯讀</div>
+        </div>
+    </div>
+
+    <script>
+        const btn = document.getElementById('toggleBtn');
+        const panel = document.getElementById('infoPanel');
+
+        btn.addEventListener('click', () => {
+            if (panel.style.display === 'none' || panel.style.display === '') {
+                panel.style.display = 'block';
+                btn.textContent = '收起資訊';
+            } else {
+                panel.style.display = 'none';
+                btn.textContent = '查看資訊';
+            }
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>Canvas 繪圖練習</title>
+    <style>
+        canvas {
+            border: 1px solid #d3d3d3;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas" width="400" height="250"></canvas>
+
+    <script>
+        var c = document.getElementById("myCanvas");
+        var ctx = c.getContext("2d");
+
+        // 2. 繪製藍色矩形 (Rectangle)
+        ctx.fillStyle = "blue";
+        ctx.strokeStyle = "black";
+        ctx.lineWidth = 4;
+        ctx.fillRect(20, 50, 150, 150);   // 填滿藍色
+        ctx.strokeRect(20, 50, 150, 150); // 畫黑色邊框
+
+        // 3. 繪製黃色圓形 (Circle)
+        ctx.beginPath();
+        // arc(x, y, 半徑, 起始角, 結束角)
+        ctx.arc(170, 125, 60, 0, 2 * Math.PI);
+        ctx.fillStyle = "yellow";
+        ctx.fill();                     // 填滿黃色
+        ctx.lineWidth = 4;
+        ctx.strokeStyle = "red";
+        ctx.stroke();                   // 畫紅色邊框
+    </script>
+
+</body>
+</html>

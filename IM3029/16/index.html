@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello World Styles</title>
+    <style>
+        body {
+            font-family: serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+
+        /* 外層白框容器 */
+        .container {
+            background-color: white;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        h1 {
+            margin: 0;
+            padding: 10px 20px;
+            font-size: 36px;
+            width: 400px;
+        }
+
+        /* 第一個樣式：淺藍底、橘紅雙線邊框 */
+        .style-1 {
+            background-color: #add8e6; /* 淺藍色 */
+            color: black;
+            border: 5px double #ff6347; /* 橘紅色雙線邊框 */
+        }
+
+        /* 第二個樣式：黃底、藍色粗圓角邊框 */
+        .style-2 {
+            background-color: #ffff00; /* 純黃色 */
+            color: black;
+            border: 3px solid #1e90ff; /* 閃電藍邊框 */
+            border-radius: 15px;      /* 圓角 */
+        }
+
+        /* 第三個樣式：綠底、灰色點狀邊框 */
+        .style-3 {
+            background-color: #3cb371; /* 中綠色 */
+            color: black;
+            border: 8px dotted #808080; /* 灰色點狀邊框 */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1 class="style-1">Hello World</h1>
+        <h1 class="style-2">Hello World</h1>
+        <h1 class="style-3">Hello World</h1>
+    </div>
+
+</body>
+</html>

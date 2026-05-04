@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 圖片樣式練習</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            padding: 50px;
+            margin: 0;
+            background-color: #f9f9f9;
+        }
+
+        /* 共同樣式 */
+        img {
+            display: block;
+        }
+
+        /* --- 左圖：不變形 (No Distortion) --- */
+        .img-left {
+            width: 33%;
+            height: 300px; /* 為了對齊右圖給定高度 */
+            border-radius: 18px;
+            object-fit: cover; /* 關鍵：裁切而不變形 */
+        }
+
+        /* --- 中圖：圓形 --- */
+        .img-center {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%; /* 形成圓形 */
+            border: 1px solid #000; /* 圖片中標示 border 150px 指的是圓角範圍 */
+            object-fit: cover;
+        }
+
+        /* --- 右圖：變形 (Distortion) --- */
+        .img-right {
+            width: 33%;
+            height: 300px; /* 標註高度 300px */
+            /* 注意：不設定 object-fit，圖片會被強制拉伸而變形 */
+        }
+    </style>
+</head>
+<body>
+
+    <img src="https://picsum.photos/800/800?image=1058" alt="Paris" class="img-left">
+
+    <img src="https://picsum.photos/800/800?image=1043" alt="Scenery" class="img-center">
+
+    <img src="https://picsum.photos/800/800?image=1058" alt="Paris Distortion" class="img-right">
+
+</body>
+</html>
