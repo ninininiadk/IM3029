@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript 物件操作練習</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            line-height: 1.6;
+        }
+        .result-box {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-left: 5px solid #007bff;
+            margin-bottom: 20px;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+        h3 {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>JavaScript 物件操作結果</h2>
+    
+    <h3>1. 原本物件的所有屬性 (Properties)：</h3>
+    <div id="properties-list" class="result-box"></div>
+
+    <h3>2. 刪除 age 屬性後的物件內容：</h3>
+    <div id="updated-object" class="result-box"></div>
+
+    <script>
+        // 原始物件
+        var Person = {
+            firstName : "Tony",
+            lastName : "Lee",
+            age : 50,
+            eyeColor : "Blue"
+        };
+
+        // 獲取並顯示所有屬性
+        var allProps = Object.keys(Person).join(", ");
+        document.getElementById("properties-list").innerText = allProps;
+
+        // 刪除 age 屬性
+        delete Person.age;
+
+        // 顯示刪除後的物件
+        document.getElementById("updated-object").innerText = JSON.stringify(Person, null, 2);
+    </script>
+
+</body>
+</html>
